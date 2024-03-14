@@ -22,7 +22,9 @@ namespace TestTask.Services.Implementations
 
         public Task<List<Order>> GetOrders()
         {
-            throw new NotImplementedException();
+            return _db.Orders
+                .Where(o=>o.Quantity > 10)
+                .ToListAsync();
         }
     }
 }
