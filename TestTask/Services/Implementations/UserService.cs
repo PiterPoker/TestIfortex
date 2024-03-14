@@ -22,7 +22,9 @@ namespace TestTask.Services.Implementations
 
         public Task<List<User>> GetUsers()
         {
-            throw new NotImplementedException();
+            return _db.Users
+                .Where(u=>u.Status.Equals(Enums.UserStatus.Inactive))
+                .ToListAsync();
         }
     }
 }
